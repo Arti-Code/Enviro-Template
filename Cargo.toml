@@ -1,0 +1,30 @@
+[package]
+name = "alife2"
+version = "0.4.10"
+edition = "2024"
+authors = ["Artur Gwoździowski"]
+description = "Neuroevolution simulation with 2D graphic written in rust using macroquad and rapier2d."
+
+[dependencies]
+egui = "0.31.1"
+egui-macroquad = "0.17.3"
+egui_extras = { version = "0.31.1", features = ["all_loaders", "image"] }
+macroquad = {version = "0.4.14", features = ["glam-serde"]}
+rand = "0.9.2"
+rapier2d = {version = "0.26.1", features = []}
+image = { version = "0.25.7", features = ["jpeg", "png"] }
+glam = "0.30.5"
+nalgebra = "0.34.0"
+neura = {path = "../neura"}
+serde = "1.0.219"
+serde_json = "1.0.143"
+anyhow = "1.0.99"
+
+[build-dependencies]
+embed-resource = "3.0.5"
+
+[profile.dev.package.rapier2d]
+opt-level = 3
+
+[profile.release]
+codegen-units = 1
